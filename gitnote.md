@@ -64,8 +64,12 @@ $ git checkout --file
 ```
 
 
+上传到云端
 
+```
+git push -u origin master
 
+```
 
 
 
