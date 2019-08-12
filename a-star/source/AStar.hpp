@@ -10,6 +10,11 @@
 #include <functional>
 #include <set>
 
+#include <opencv2/core/core.hpp> //包含程序所使用的头文件和命名空间
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+
 namespace AStar
 {
     struct Vec2i
@@ -50,12 +55,15 @@ namespace AStar
         void addCollision(Vec2i coordinates_);
         void removeCollision(Vec2i coordinates_);
         void clearCollisions();
+        void display();
 
     private:
         HeuristicFunction heuristic;
         CoordinateList direction, walls;
         Vec2i worldSize;
         uint directions;
+        CoordinateList pathFinded;
+        Vec2i source, target;
     };
 
     class Heuristic

@@ -1,0 +1,3 @@
+/home/shawfy/linux_study/cmake-demo/Demo1/CMakeFiles/rebuild_cache.dir
+/home/shawfy/linux_study/cmake-demo/Demo1/CMakeFiles/edit_cache.dir
+/home/shawfy/linux_study/cmake-demo/Demo1/CMakeFiles/Demo.dir

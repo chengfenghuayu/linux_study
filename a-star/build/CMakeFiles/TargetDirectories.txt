@@ -1,0 +1,4 @@
+/home/shawfy/linux_study/a-star/build/CMakeFiles/rebuild_cache.dir
+/home/shawfy/linux_study/a-star/build/CMakeFiles/edit_cache.dir
+/home/shawfy/linux_study/a-star/build/CMakeFiles/main.dir
+/home/shawfy/linux_study/a-star/build/CMakeFiles/a-star.dir

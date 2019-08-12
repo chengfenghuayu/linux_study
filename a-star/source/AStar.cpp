@@ -47,7 +47,7 @@ void AStar::Generator::setDiagonalMovement(bool enable_)
 
 void AStar::Generator::setHeuristic(HeuristicFunction heuristic_)
 {
-    heuristic = std::bind(heuristic_, _1, _2);
+    heuristic = std::bind(heuristic_, _1, _2);  //function 模板通过bind调用类函数
 }
 
 void AStar::Generator::addCollision(Vec2i coordinates_)
@@ -70,6 +70,9 @@ void AStar::Generator::clearCollisions()
 
 AStar::CoordinateList AStar::Generator::findPath(Vec2i source_, Vec2i target_)
 {
+    source = source_;
+    target = target_;
+
     Node *current = nullptr;
     NodeSet openSet, closedSet;
     openSet.insert(new Node(source_));
@@ -121,6 +124,7 @@ AStar::CoordinateList AStar::Generator::findPath(Vec2i source_, Vec2i target_)
     releaseNodes(openSet);
     releaseNodes(closedSet);
 
+    pathFinded = path;
     return path;
 }
 
@@ -173,4 +177,32 @@ AStar::uint AStar::Heuristic::octagonal(Vec2i source_, Vec2i target_)
 {
     auto delta = std::move(getDelta(source_, target_));
     return 10 * (delta.x + delta.y) + (-6) * std::min(delta.x, delta.y);
+}
+
+void AStar::Generator::display(){
+
+    cv::Mat img = cv::Mat::zeros(cv::Size(worldSize.x,worldSize.y), CV_8UC3);
+    img.setTo(255);
+    
+    cv::Point p1( source.x, source.y );
+    cv::circle(img,p1,3,cv::Scalar(255,0,255),3);
+    
+    cv::Point p2( target.x, target.y );
+    cv::circle(img,p2,3,cv::Scalar(255,0,255),3);
+
+    for(auto & wall:walls){
+        cv::Point p1( wall.x, wall.y );
+        cv::circle(img,p1,3,cv::Scalar(0,0,255),3);
+    }
+
+    for(auto & node:pathFinded){
+        cv::Point p1( node.x, node.y );
+        cv::circle(img,p1,1,cv::Scalar(0,255,255),1);
+    }
+
+
+    cv::imshow("A Star routing", img);
+    cv::waitKey();
+
+
 }
