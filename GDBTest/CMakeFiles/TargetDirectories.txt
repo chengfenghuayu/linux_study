@@ -1,0 +1,3 @@
+/home/shawfy/linux_study/GDBTest/CMakeFiles/rebuild_cache.dir
+/home/shawfy/linux_study/GDBTest/CMakeFiles/edit_cache.dir
+/home/shawfy/linux_study/GDBTest/CMakeFiles/factor.dir

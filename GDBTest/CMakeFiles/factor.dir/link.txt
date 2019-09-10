@@ -1,0 +1,1 @@
+/usr/bin/c++   -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/factor.dir/factoral.cpp.o  -o factor 
